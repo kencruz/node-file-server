@@ -10,7 +10,7 @@ server.on("connection", (client) => {
   client.on("data", (data) => {
     readFromFile(data, (data) => {
       client.write(data);
-      client.write("File done");
+      client.end();
     });
   });
   client.on("end", () => {
